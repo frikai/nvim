@@ -18,6 +18,7 @@ function M.config()
       formatting.stylua,
       formatting.prettier,
       formatting.black,
+      formatting.stylua,
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
