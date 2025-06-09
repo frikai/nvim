@@ -39,8 +39,9 @@ vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
 -- vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 
 -- more good
-keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
-keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+-- overwritten by ufo.lua
+-- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+-- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- tailwind bearable to work with
 keymap({ "n", "x" }, "j", "gj", opts)
