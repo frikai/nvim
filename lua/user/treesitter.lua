@@ -7,7 +7,7 @@ local M = {
 -- TODO: add keymaps for capture groups (function, class, call, parameter, loop, ...)
 function M.config()
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" },
+    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" , "vimdoc", "luadoc"},
     highlight = { enable = true },
     indent = { enable = true },
   }
