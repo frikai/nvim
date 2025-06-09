@@ -65,6 +65,7 @@ function M.config()
   local lspconfig = require "lspconfig"
   local icons = require "user.icons"
 
+  -- use this to specify settings
   local servers = {
     "lua_ls",
     "pyright",
