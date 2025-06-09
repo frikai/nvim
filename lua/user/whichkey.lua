@@ -17,8 +17,7 @@ function M.config()
       { "<leader>b", group = "Buffers" },
       { "<leader>d", group = "Debug" },
       { "<leader>f", group = "Find" },
-      { "<leader>g", group = "Git" },
-      { "<leader>l", group = "LSP" },
+      { "<leader>g", group = "Git" }, { "<leader>l", group = "LSP" },
       { "<leader>p", group = "Plugins" },
       { "<leader>t", group = "Test" },
       { "<leader>a", group = "Tab" },
@@ -27,6 +26,8 @@ function M.config()
       { "<leader>al", "<cmd>+tabmove<cr>", desc = "Move Right" },
       { "<leader>an", "<cmd>$tabnew<cr>", desc = "New Empty Tab" },
       { "<leader>ao", "<cmd>tabonly<cr>", desc = "Only" },
+      { "<leader>ac", "<cmd>tabclose<cr>", desc = "Close Tab" },
+      { "<leader>aj", "<cmd>Tabby jump_to_tab<cr>", desc = "Jump To Tab" },
       { "<leader>T", group = "Treesitter" },
     },
     plugins = {
