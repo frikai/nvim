@@ -3,9 +3,10 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvimtools/none-ls-extras.nvim",
-    "williamboman/mason.nvim",
+    {"williamboman/mason.nvim", version = "^1.0.0" },
+    {"williamboman/mason-lspconfig.nvim", version = "^1.0.0" },
+    -- TODO: unpin versions eventually when Lazy.nvim is compatible with v2.x
     "jay-babu/mason-null-ls.nvim",
-    "williamboman/mason-lspconfig.nvim",
   },
 }
 

@@ -9,4 +9,5 @@ def test2():
 class xddtree:
     def __init__(self) -> None:
         self.asdf = "asdf"
-        pass
+        for i in range(10):
+            print(i)
