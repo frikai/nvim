@@ -25,6 +25,7 @@ function M.config()
     "bashls",
     "jsonls",
     "ruff",
+    "yamlls",
   }
 
   local others = {
@@ -32,6 +33,7 @@ function M.config()
     "pylint",
     "stylua",
     "prettier",
+    "yamllint",
   }
 
   require("mason-lspconfig").setup {
@@ -59,6 +61,8 @@ function M.config()
       formatting.black,
       formatting.stylua,
       completion.spell,
+      diagnostics.yamllint,
+
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },

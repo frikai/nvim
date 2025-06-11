@@ -17,7 +17,8 @@ function M.config()
       { "<leader>b", group = "Buffers" },
       { "<leader>d", group = "Debug" },
       { "<leader>f", group = "Find" },
-      { "<leader>g", group = "Git" }, { "<leader>l", group = "LSP" },
+      { "<leader>g", group = "Git" },
+      { "<leader>l", group = "LSP" },
       { "<leader>p", group = "Plugins" },
       { "<leader>t", group = "Test" },
       { "<leader>a", group = "Tab" },
@@ -29,6 +30,37 @@ function M.config()
       { "<leader>ac", "<cmd>tabclose<cr>", desc = "Close Tab" },
       { "<leader>aj", "<cmd>Tabby jump_to_tab<cr>", desc = "Jump To Tab" },
       { "<leader>T", group = "Treesitter" },
+      { "<leader> ", "<cmd>Alpha<cr>", desc = "Show Greeter" },
+      { "<leader>S", group = "Sessions" },
+      {
+        "<leader>Sc",
+        function()
+          require("persistence").load()
+        end,
+        desc = "Current Directory",
+      },
+      {
+        "<leader>Ss",
+        function()
+          require("persistence").select()
+        end,
+        desc = "Pick Session",
+      },
+      {
+        "<leader>Sl",
+        function()
+          require("persistence").load { last = true }
+        end,
+        desc = "Last Session",
+      },
+      {
+        "<leader>Sq",
+        function()
+          require("persistence").stop()
+          vim.cmd "wqa"
+        end,
+        desc = "Quit Without Session",
+      },
     },
     plugins = {
       marks = true,

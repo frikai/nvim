@@ -49,3 +49,7 @@ keymap({ "n", "x" }, "k", "gk", opts)
 keymap("n", "<leader>W", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 
 vim.api.nvim_set_keymap("t", "<C-;>", "<C-\\><C-n>", opts) -- go to normal mode in terminal
+
+-- resize windows
+keymap("n", "<c-Left>", "<c-w><", opts) 
+keymap("n", "<c-Right>", "<c-w>>", opts) 
