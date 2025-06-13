@@ -41,7 +41,7 @@ function M.config()
     button("p", icons.git.Repo .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
     button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
     button("t", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
-    button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
+    button("c", icons.ui.Gear .. " Config", ":e " .. vim.fn.stdpath("config") .. "/init.lua <CR>"),
     button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
   }
   local function footer()
