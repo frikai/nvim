@@ -3,8 +3,10 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Hide search highlights' })
 
+-- not sure what this does but was in launch.nvim
+vim.keymap.set('n', '<C-i>', '<C-i>')
 -- Diagnostic Config & Keymaps
 --  See `:help vim.diagnostic.Opts`
 vim.diagnostic.config {
@@ -29,6 +31,7 @@ vim.diagnostic.config {
   },
 }
 
+-- TODO: kinda useless
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -52,13 +55,44 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+
+-- resize windows
+vim.keymap.set('n', '<c-Left>', '<c-w><')
+vim.keymap.set('n', '<c-Right>', '<c-w>>')
+
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<m-tab>', '<c-6>') --unclear
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+-- center when searching etc.
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+vim.keymap.set('n', '*', '*zz')
+vim.keymap.set('n', '#', '#zz')
+vim.keymap.set('n', 'g*', 'g*zz')
+vim.keymap.set('n', 'g#', 'g#zz')
+
+-- Stay in indent mode
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
+-- Keep pasting same thing over something else
+vim.keymap.set('x', 'p', [["_dP]])
+
+-- delete current buffer
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = 'Delete current buffer' })
+vim.keymap.set('n', '<leader>bD', '<cmd>bdelete!<CR>', { desc = 'Force delete current buffer' })
+
+-- more good
+-- overwritten by ufo.lua
+-- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+-- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

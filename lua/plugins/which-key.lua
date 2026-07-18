@@ -1,5 +1,6 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
+
 -- Useful plugin to show you pending keybinds.
 vim.pack.add { gh 'folke/which-key.nvim' }
 require('which-key').setup {
@@ -8,10 +9,10 @@ require('which-key').setup {
   icons = { mappings = vim.g.have_nerd_font },
   -- Document existing key chains
   spec = {
-    { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
+    { '<leader>f', group = 'Telescope [F]ind', mode = { 'n', 'v' } },
     { '<leader>t', group = '[T]oggle' },
     { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
-    { 'gr', group = 'LSP Actions', mode = { 'n' } },
+    { '<leader>l', group = '[L]SP Actions', mode = { 'n' } },
   },
 }
 

@@ -11,8 +11,8 @@ require('luasnip').setup {}
 --    See the README about individual language/framework/plugin snippets:
 --    https://github.com/rafamadriz/friendly-snippets
 --
--- vim.pack.add { gh 'rafamadriz/friendly-snippets' }
--- require('luasnip.loaders.from_vscode').lazy_load()
+vim.pack.add { gh 'rafamadriz/friendly-snippets' }
+require('luasnip.loaders.from_vscode').lazy_load()
 
 -- [[ Autocomplete Engine ]]
 vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
@@ -40,7 +40,19 @@ require('blink.cmp').setup {
     --
     -- See `:help blink-cmp-config-keymap` for defining your own keymap
     preset = 'default',
-
+    ['<Tab>'] = {
+      function(cmp)
+        if cmp.snippet_active() then
+          return cmp.accept()
+        else
+          return cmp.select_and_accept()
+        end
+      end,
+      'snippet_forward',
+      'fallback',
+    },
+    ['<C-j>'] = { 'select_next' },
+    ['<C-k>'] = { 'select_prev' },
     -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
     --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
   },
@@ -54,11 +66,12 @@ require('blink.cmp').setup {
   completion = {
     -- By default, you may press `<c-space>` to show the documentation.
     -- Optionally, set `auto_show = true` to show the documentation after a delay.
-    documentation = { auto_show = false, auto_show_delay_ms = 500 },
+    documentation = { auto_show = true, auto_show_delay_ms = 500 },
   },
 
   sources = {
-    default = { 'lsp', 'path', 'snippets' },
+    default = { 'lsp', 'buffer', 'path', 'snippets' },
+    providers = { lsp = { async = true } },
   },
 
   snippets = { preset = 'luasnip' },
@@ -70,7 +83,7 @@ require('blink.cmp').setup {
   -- the rust implementation via `'prefer_rust_with_warning'`
   --
   -- See `:help blink-cmp-config-fuzzy` for more information
-  fuzzy = { implementation = 'lua' },
+  fuzzy = { implementation = 'prefer_rust_with_warning' },
 
   -- Shows a signature help window while you type arguments for a function
   signature = { enabled = true },
