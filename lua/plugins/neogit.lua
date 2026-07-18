@@ -18,11 +18,4 @@ require('neogit').setup {
   popup = {
     kind = 'split',
   },
-  -- customize displayed signs
-  signs = {
-    -- { CLOSED, OPENED }
-    -- section = { icons.ui.ChevronRight, icons.ui.ChevronShortDown },
-    -- item = { icons.ui.ChevronRight, icons.ui.ChevronShortDown },
-    -- hunk = { '', '' },
-  },
 }
