@@ -51,6 +51,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  Most Language Servers support renaming across files, etc.
     map('<leader>lR', vim.lsp.buf.rename, '[R]ename')
 
+    -- Show diagnostics for a line
+    map('<leader>ll', vim.diagnostic.open_float, '[L]ine Diagnostics')
+
     -- Execute a code action, usually your cursor needs to be on top of an error
     -- or a suggestion from your LSP for this to activate.
     map('<leader>la', vim.lsp.buf.code_action, 'Code [A]ction', { 'n', 'x' })
@@ -173,7 +176,7 @@ local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
   -- You can add other tools here that you want Mason to install
 })
-
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
 for name, server in pairs(servers) do
