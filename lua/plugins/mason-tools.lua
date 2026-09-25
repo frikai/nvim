@@ -72,5 +72,4 @@ require('mason').setup {}
 local ensure_installed = vim.tbl_keys(LSPServers or {})
 vim.list_extend(ensure_installed, Linters)
 
-print(vim.inspect(ensure_installed))
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
