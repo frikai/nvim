@@ -1,5 +1,5 @@
 -- Load plugin modules in order.
-
+require 'plugins.mason-tools'
 require 'plugins.which-key'
 require 'plugins.guess-indent'
 require 'plugins.gitsigns'
@@ -19,3 +19,5 @@ require 'plugins.oil'
 require 'plugins.neo-tree'
 require 'plugins.neogit'
 require 'plugins.alpha'
+require 'plugins.render-markdown'
+require 'plugins.persistence'

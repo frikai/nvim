@@ -4,6 +4,7 @@ vim.pack.add { 'https://github.com/mfussenegger/nvim-lint' }
 
 local lint = require 'lint'
 lint.linters_by_ft = {
+  -- can ensure_installed in mason-tools.lua
   markdown = { 'markdownlint' }, -- Make sure to install `markdownlint` via mason / npm
 }
 
