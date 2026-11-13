@@ -1,14 +1,18 @@
 local os_name = vim.loop.os_uname().sysname
 os_name = os_name:lower()
 
-local function is_windows() return os_name == 'windows_nt' end
+local function is_windows()
+	return os_name == "windows_nt"
+end
 
-if is_windows() then vim.cmd [[
+if is_windows() then
+	vim.cmd([[
     set shell=pwsh
     set shellcmdflag=-command
     set shellquote=\"
     set shellxquote=
-  ]] end
+  ]])
+end
 
 -- Enable faster startup by caching compiled Lua modules
 vim.loader.enable()
@@ -17,8 +21,8 @@ vim.loader.enable()
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.keymap.set("n", "<Space>", "")
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -41,7 +45,9 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+vim.schedule(function()
+	vim.o.clipboard = "unnamedplus"
+end)
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -54,7 +60,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -75,10 +81,10 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-guide-options`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.o.cursorline = true
@@ -107,9 +113,10 @@ vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.swapfile = false -- creates a swapfile
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
---vim.opt.expandtab = true -- convert tabs to spaces
---vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
---vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.expandtab = true -- convert tabs to spaces
+vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.softtabstop = 2 -- insert 2 spaces for a tab
 vim.opt.laststatus = 3
 --vim.opt.showcmd = false
 vim.opt.ruler = false
@@ -120,14 +127,14 @@ vim.opt.title = false --setting window title
 -- colorcolumn = "80", -- highlicht column for line width guideline
 -- colorcolumn = "120",
 vim.opt.fillchars = vim.opt.fillchars + "eob: " --don't display ~ for empty lines
-vim.opt.fillchars:append {
-  stl = " ",
-}
+vim.opt.fillchars:append({
+	stl = " ",
+})
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2

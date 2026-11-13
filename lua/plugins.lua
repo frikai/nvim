@@ -1,24 +1,26 @@
 -- Load plugin modules in order.
-require 'plugins.mason-tools'
-require 'plugins.which-key'
-require 'plugins.guess-indent'
-require 'plugins.gitsigns'
-require 'plugins.tokyonight'
-require 'plugins.todo-comments'
-require 'plugins.mini'
-require 'plugins.telescope'
-require 'plugins.lspconfig'
-require 'plugins.conform'
-require 'plugins.blink-cmp'
-require 'plugins.treesitter'
-require 'plugins.autopairs'
-require 'plugins.debug'
-require 'plugins.indent_line'
-require 'plugins.lint'
-require 'plugins.oil'
-require 'plugins.neo-tree'
-require 'plugins.neogit'
-require 'plugins.alpha'
-require 'plugins.render-markdown'
-require 'plugins.persistence'
-require 'plugins.neoscroll'
+require("plugins.mason-tools")
+require("plugins.arrow")
+require("plugins.which-key")
+require("plugins.guess-indent")
+require("plugins.gitsigns")
+require("plugins.tokyonight")
+require("plugins.todo-comments")
+require("plugins.mini")
+require("plugins.telescope")
+require("plugins.navbuddy") --before lspconfig
+require("plugins.lspconfig")
+require("plugins.conform")
+require("plugins.blink-cmp")
+require("plugins.treesitter")
+require("plugins.autopairs")
+require("plugins.debug")
+require("plugins.indent_line")
+require("plugins.lint")
+require("plugins.oil")
+require("plugins.neo-tree")
+require("plugins.neogit")
+require("plugins.alpha")
+require("plugins.render-markdown")
+require("plugins.persistence")
+require("plugins.neoscroll")
